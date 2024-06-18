@@ -1,6 +1,5 @@
 #!/bin/bash
 
-current_desktop=$(qdbus org.kde.KWin /KWin currentDesktop)
 curr_desktop=$(xdotool get_desktop)
 total_desktops=$(xdotool get_num_desktops)
 total_desktops=$((total_desktops - 1))
