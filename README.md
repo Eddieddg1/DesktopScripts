@@ -5,3 +5,4 @@ If you dont know how to add them as shortcuts throught the terminal you can add 
 I dont know if these work with plasma 5 or not, but I imagine they dont.
 
 For me prev-desktop.sh does not work as a shortcut but in the terminal, if you find the fix to it, dont hesitate to tell me, please.
+Ifound the problem... there was a space before #!/bin/bash
