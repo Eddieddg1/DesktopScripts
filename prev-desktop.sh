@@ -1,4 +1,4 @@
- #!/bin/bash
+#!/bin/bash
 
 current_desktop=$(qdbus org.kde.KWin /KWin currentDesktop)
 curr_desktop=$(xdotool get_desktop)
