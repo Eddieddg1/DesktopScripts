@@ -1,0 +1,16 @@
+sudo pacman -Sy --noconfirm
+sudo pacman-key --init --keyserver hkp://keys.gnupg.net
+sudo pacman-key --init
+sudo pacman-key --populate archlinux
+sudo pacman -Syu --noconfirm
+sudo pacman -Syy --noconfirm
+sudo pacman -Rns $(pacman -Qdtq) --noconfirm
+sudo paccache -r
+sudo pacman -Scc --noconfirm
+flatpak update -y
+yay --noconfirm
+sudo journalctl --vacuum-time=2weeks
+cd ~/Documents/Yes/
+./fastfetch_start.sh
+cd /home/eddie/
+echo "Update Complete. Carry On."
