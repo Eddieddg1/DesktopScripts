@@ -1,3 +1,4 @@
+#!/bin/bash
 sudo pacman -Sy --noconfirm
 sudo pacman-key --init --keyserver hkp://keys.gnupg.net
 sudo pacman-key --init
