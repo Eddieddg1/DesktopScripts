@@ -10,5 +10,6 @@ sudo paccache -r
 sudo pacman -Scc --noconfirm
 flatpak update -y
 yay --noconfirm
+clear
 fastfetch
 echo "Update Complete. Carry On."
