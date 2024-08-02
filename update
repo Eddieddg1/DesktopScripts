@@ -9,8 +9,5 @@ sudo paccache -r
 sudo pacman -Scc --noconfirm
 flatpak update -y
 yay --noconfirm
-sudo journalctl --vacuum-time=2weeks
-cd ~/Documents/Yes/
-./fastfetch_start.sh
-cd /home/eddie/
+fastfetch
 echo "Update Complete. Carry On."
