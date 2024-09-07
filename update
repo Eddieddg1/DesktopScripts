@@ -1,15 +1,38 @@
 #!/bin/bash
-sudo pacman -Sy --noconfirm
-sudo pacman-key --init --keyserver hkp://keys.gnupg.net
-sudo pacman-key --init
-sudo pacman-key --populate archlinux
-sudo pacman -Syu --noconfirm
-sudo pacman -Syy --noconfirm
-sudo pacman -Rns $(pacman -Qdtq) --noconfirm
-sudo paccache -r
-sudo pacman -Scc --noconfirm
-flatpak update -y
-yay --noconfirm
+mkdir -p ~/Update\ Logs/
+log_file=~/Update\ Logs/Update-$(date +'%Mmin-%Hhr-%dd-%mm-%yy').log
+{
+    echo "Starting update process at $(date)"
+    echo "Updating pacman"
+    sudo pacman -Syu --noconfirm
+    echo ""
+    echo "--------------------------"
+    echo "Removing orphaned packages"
+    sudo pacman -Rns $(pacman -Qdtq) --noconfirm
+    echo ""
+    echo "--------------------------"
+    echo "Cleaning up pacman cache"
+    sudo paccache -r
+    echo ""
+    echo "--------------------------"
+    echo "Cleaning up pacman"
+    sudo pacman -Scc --noconfirm
+    echo ""
+    echo "--------------------------"
+    echo "Updating flatpak"
+    flatpak update -y
+    echo ""
+    echo "--------------------------"
+    echo "Updating yay"
+    yay --noconfirm
+    echo ""
+    echo "--------------------------"
+    echo "Cleaning up journalctl"
+    sudo journalctl --vacuum-time=2weeks
+    echo ""
+    echo "--------------------------"
+    echo "Update process completed at $(date)"
+} 2>&1 | tee "$log_file"
 clear
-fastfetch
+fafe
 echo "Update Complete. Carry On."
